@@ -1,0 +1,25 @@
+#! /bin/sh
+
+killall sxhkd
+killall conky
+killall plank
+rm /tmp/xobpipe
+rm /tmp/backlightpipe
+mkfifo /tmp/xobpipe
+mkfifo /tmp/backlightpipe
+pgrep -x sxhkd > /dev/null || sxhkd &
+$HOME/.config/polybar/launch.sh &
+$HOME/scripts/fullscreen &
+# $HOME/scripts/autolock &
+# $HOME/scripts/bspswallow &
+nitrogen --restore &
+picom &
+clipmenud &
+xsetroot -cursor_name left_ptr &
+conky -c $HOME/.config/conky/conkyrc &
+dunst &
+tail -f /tmp/backlightpipe | xob -c $HOME/.config/xob/styles.cfg &
+tail -f /tmp/xobpipe | xob -c $HOME/.config/xob/styles.cfg &
+$HOME/scripts/welcome &
+plank &
+spotify-listener &

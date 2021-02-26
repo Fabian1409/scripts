@@ -1,0 +1,29 @@
+#! /bin/sh
+# Custom greetings depending on time
+sleep 3
+
+morning_begin="050000"
+morning_end="115959"
+afternoon_begin="120000"
+afternoon_end="165959"
+evening_begin="170000"
+evening_end="045959"
+now=$(date +"%H%M%S")
+# if you want to use a given time instead of the current time, use
+# $(date --date=$some_time +%s)
+
+if [[ $now -ge $morning_begin && $now -le $morning_end ]]; then
+  notify-send -u normal "Good morning, Fabian" "$(sh ~/scripts/weather)"
+
+elif [[ $now -ge $afternoon_begin && $now -le $afternoon_end ]]; then
+  notify-send -u normal "Good afternoon, Fabian" "$(sh ~/scripts/weather)"
+
+elif [[ $now -ge $evening_begin && $now -le "240000" ]]; then
+  notify-send -u normal "Good evening, Fabian" "$(sh ~/scripts/weather)"
+
+elif [[ $now -ge "000001" && $now -le $evening_end ]]; then
+  notify-send -u normal "Good evening, Fabian" "$(sh ~/scripts/weather)"
+
+fi
+
+

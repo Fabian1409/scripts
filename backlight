@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case $1 in
+    up)
+      xbacklight -inc 10 && echo "$(xbacklight -get)" > /tmp/backlightpipe
+      ;;
+    down)
+      xbacklight -dec 10 && echo "$(xbacklight -get)" > /tmp/backlightpipe
+	    ;;
+esac
+
+

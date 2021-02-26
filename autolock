@@ -1,0 +1,1 @@
+xautolock -time 1 -locker 'sh ~/scripts/lock' -killtime 10 -killer 'sytemctl suspend' -detectsleep 

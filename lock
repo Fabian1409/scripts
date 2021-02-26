@@ -1,0 +1,8 @@
+#! /bin/sh
+
+i3lock -n -i /usr/share/backgrounds/lock.jpg \
+    --insidecolor=012351ff --ringcolor=ffffffff --line-uses-inside \
+    --keyhlcolor=ff3b51ff --bshlcolor=ff3b51ff --separatorcolor=00000000 \
+    --insidevercolor=fecf4d00 --insidewrongcolor=d23c3d00 \
+    --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+110:y+990" \
+    --radius=20 --ring-width=8 --veriftext="" --wrongtext=""
